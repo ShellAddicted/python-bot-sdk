@@ -2,7 +2,7 @@
 import grpc
 
 import device_info_pb2 as device__info__pb2
-import miscellaneous_pb2 as miscellaneous__pb2
+from . import miscellaneous_pb2 as miscellaneous__pb2
 
 
 class DeviceInfoStub(object):

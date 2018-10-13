@@ -2,7 +2,7 @@
 import grpc
 
 import config_sync_pb2 as config__sync__pb2
-import miscellaneous_pb2 as miscellaneous__pb2
+from . import miscellaneous_pb2 as miscellaneous__pb2
 
 
 class ConfigSyncStub(object):

@@ -2,7 +2,7 @@
 import grpc
 
 import groups_pb2 as groups__pb2
-import miscellaneous_pb2 as miscellaneous__pb2
+from . import miscellaneous_pb2 as miscellaneous__pb2
 
 
 class GroupsStub(object):

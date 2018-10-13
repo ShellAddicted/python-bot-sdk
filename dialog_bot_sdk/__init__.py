@@ -1,1 +1,1 @@
-from internal import peers
+from .internal import peers

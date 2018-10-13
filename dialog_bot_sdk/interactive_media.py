@@ -25,7 +25,7 @@ class InteractiveMediaSelect(object):
             target.label.value = self.label
         if self.default_value is not None:
             target.default_value.value = self.default_value
-        for value, label in self.options.iteritems():
+        for value, label in self.options.items():
             opt = target.options.add()
             opt.value = value
             opt.label = label
@@ -65,7 +65,10 @@ class InteractiveMedia(object):
         self.confirm = confirm
 
     def render(self, target):
-        target.id = unicode(self.id)
+        try:
+            target.id = unicode(self.id)
+        except NameError:
+            target.id = str(self.id).encode("utf-8")
         target.style = self.style_map.get(self.style, messaging_pb2.INTERACTIVEMEDIASTYLE_UNKNOWN)
         if self.widget is not None:
             if isinstance(self.widget, InteractiveMediaButton):
@@ -95,8 +98,8 @@ class InteractiveMediaGroup(object):
             media.title.value = self.title
         if self.description is not None:
             media.description.value = self.description
-        for lang, trans in self.translations.iteritems():
+        for lang, trans in self.translations.items():
             group = messaging_pb2.InteractiveMediaTranslationGroup(lang=lang)
-            for id, value in trans.iteritems():
+            for id, value in trans.items():
                 group.messages.append(InteractiveMediaTranslation(id=id, value=value))
             media.translations.append(group)

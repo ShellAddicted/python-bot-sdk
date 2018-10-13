@@ -2,7 +2,7 @@
 import grpc
 
 import event_bus_pb2 as event__bus__pb2
-import miscellaneous_pb2 as miscellaneous__pb2
+from . import miscellaneous_pb2 as miscellaneous__pb2
 
 
 class EventBusStub(object):
